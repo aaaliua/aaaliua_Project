@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+   <color name="tabbar_color">#DE4212</color>
+   <color name="default_bg">#dcdbdb</color>
+   <color name="textcolor">#969696</color>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ItemWork</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    
+    
+    <string name="user_setting">设置</string>
+    <string name="user_img">头像</string>
+    <string name="user_school_name">学校</string>
+    <string name="user_reset_password">修改密码</string>
+    <string name="user_updata_version">版本更新</string>
+    <string name="user_send_msg">意见反馈</string>
+    <string name="user_clear_cache">清除缓存</string>
+    <string name="user_about_me">关于我们</string>
+    <string name="user_xieyi">使用协议</string>
+</resources>

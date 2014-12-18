@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 个人中心 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_bg"
+    android:orientation="vertical" >
+
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/tabbar_color"
+        android:gravity="center_vertical" >
+
+        <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="8dip"
+        android:paddingRight="12dip"
+        android:background="@drawable/mid_button_trans"
+        android:clickable="true"
+        android:drawableLeft="@drawable/back_seletor"
+        android:text="@string/back"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_sixteen" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="个人中心"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <com.dazhongcun.widget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/default_bg"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/default_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:background="@color/tabbar_color" >
+
+                <LinearLayout 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_toRightOf="@+id/user_img"
+                    android:layout_centerVertical="true"
+                    >
+                    <TextView
+                    android:textColor="@color/white"
+                      android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="海贼王" />
+                    <TextView
+                        android:textColor="@color/white"
+                          android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="123456789012" />
+                    
+                </LinearLayout>
+                
+                <com.dazhongcun.widget.CircleImageView
+                    android:id="@+id/user_img"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="8dip"
+                    android:layout_marginLeft="@dimen/text_margin_left"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/hugh"
+                    app:border_color="@color/tabbar_color"
+                    app:border_width="1dp" />
+
+                <ImageView
+                    android:id="@+id/row_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="0.5dp"
+                android:clickable="true"
+                android:background="@drawable/list_selected"
+                >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="@string/user_school_name" />
+
+                <TextView
+                    style="@style/infotextStyle"
+                    android:id="@+id/comuntiyName"
+                    android:layout_toLeftOf="@+id/row_img1"
+                    android:text="上海复旦大学" />
+
+                <ImageView
+                    android:id="@+id/row_img1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:clickable="true"
+                android:background="@drawable/list_selected"
+                android:layout_marginTop="@dimen/tab_margin_top"
+                 >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="@string/user_reset_password" />
+
+                
+
+                <ImageView
+                    android:id="@+id/row_img2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="@dimen/tab_margin_top"
+               android:clickable="true"
+                android:background="@drawable/list_selected" >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="@string/user_updata_version" />
+
+                <TextView
+                    style="@style/infotextStyle"
+                    android:id="@+id/position"
+                    android:layout_toLeftOf="@+id/row_img3"
+                    android:text="当前1.0" />
+
+                <ImageView
+                    android:id="@+id/row_img3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="@dimen/tab_margin_top"
+                android:clickable="true"
+                android:background="@drawable/list_selected" >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="@string/user_send_msg" />
+
+                
+
+                <ImageView
+                    android:id="@+id/row_img4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="@dimen/tab_margin_top"
+                android:clickable="true"
+                android:background="@drawable/list_selected" >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="@string/user_clear_cache" />
+
+                <TextView
+                    style="@style/infotextStyle"
+                    android:id="@+id/cache"
+                    android:layout_toLeftOf="@+id/row_img5"
+                    android:text="0M" />
+                <ImageView
+                    android:id="@+id/row_img5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="@dimen/tab_margin_top"
+               android:clickable="true"
+                android:background="@drawable/list_selected" >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="@string/user_about_me" />
+
+                <ImageView
+                    android:id="@+id/row_img6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="@dimen/tab_margin_top"
+               android:clickable="true"
+                android:background="@drawable/list_selected" >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="@string/user_xieyi" />
+
+                <ImageView
+                    android:id="@+id/row_img7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+            <RelativeLayout 
+                android:layout_width="match_parent"
+                android:layout_margin="8dip"
+                android:layout_height="38dip"
+                android:clickable="true"
+                android:background="@color/tabbar_color"
+                
+                >
+            <TextView 
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/mid_button_trans"
+                android:textColor="@color/white"
+                android:text="退出当前账号"
+                />
+            </RelativeLayout>
+        </LinearLayout>
+   </com.dazhongcun.widget.BounceScrollView>
+
+</LinearLayout>
