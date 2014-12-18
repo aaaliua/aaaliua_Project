@@ -1,5 +1,7 @@
 package com.aaaliua.itemwork;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,9 @@ import com.aaaliua.user.UserActivity;
 import com.dazhongcun.widget.CircleImageView;
 import com.dazhongcun.widget.FragmentViewPagerAdapter;
 import com.dazhongcun.widget.PagerSlidingTabStrip;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -74,11 +79,33 @@ public class MainActivity extends FragmentActivity {
 		mSlidingTabLayout.setTextFocusColorResource(R.color.black);
 		mSlidingTabLayout.setUnderlineColorResource(R.color.divide_line);
 		
+//		 new Thread(new Runnable() {
+//				public void run() {
+//					try {
+//						MainActivity.this.run("http://192.168.2.200:8080/AppInterface/");
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			}).start();
 		
 	}
 	
+	
+	public String run(String url) throws IOException {
+		OkHttpClient client = new OkHttpClient();
+	    Request request = new Request.Builder()
+	        .url(url)
+	        .build();
+
+	    Response response = client.newCall(request).execute();
+	    return response.body().string();
+	  }
+	
+	
 	@OnClick(R.id.user_img)
 	public void toUser(View v){
+		
 		startActivity(new Intent(this,UserActivity.class));
 	}
 	

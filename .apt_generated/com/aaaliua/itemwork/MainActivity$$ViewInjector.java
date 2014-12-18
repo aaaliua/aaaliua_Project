@@ -9,6 +9,10 @@ public class MainActivity$$ViewInjector {
     View view;
     view = finder.findRequiredView(source, 2131296340, "field 'mSlidingTabLayout'");
     target.mSlidingTabLayout = (com.dazhongcun.widget.PagerSlidingTabStrip) view;
+    view = finder.findRequiredView(source, 2131296341, "field 'mViewPager'");
+    target.mViewPager = (android.support.v4.view.ViewPager) view;
+    view = finder.findRequiredView(source, 2131296336, "field 'tab'");
+    target.tab = (android.widget.RelativeLayout) view;
     view = finder.findRequiredView(source, 2131296337, "field 'userImage' and method 'toUser'");
     target.userImage = (com.dazhongcun.widget.CircleImageView) view;
     view.setOnClickListener(
@@ -19,16 +23,12 @@ public class MainActivity$$ViewInjector {
           target.toUser(p0);
         }
       });
-    view = finder.findRequiredView(source, 2131296336, "field 'tab'");
-    target.tab = (android.widget.RelativeLayout) view;
-    view = finder.findRequiredView(source, 2131296341, "field 'mViewPager'");
-    target.mViewPager = (android.support.v4.view.ViewPager) view;
   }
 
   public static void reset(com.aaaliua.itemwork.MainActivity target) {
     target.mSlidingTabLayout = null;
-    target.userImage = null;
-    target.tab = null;
     target.mViewPager = null;
+    target.tab = null;
+    target.userImage = null;
   }
 }
