@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 个人中心 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/tabbar_color"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@drawable/mid_button_trans"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <!--
+            android:drawableLeft="@drawable/back_seletor"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            -->
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_seletor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="注册"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <com.dazhongcun.widget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/default_bg"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/default_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:layout_marginTop="13dp"
+                 >
+
+                <EditText
+                    android:background="@drawable/edittext_selected"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="12dip"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:maxLength="12"
+                    android:inputType="phone"
+                    android:textSize="@dimen/text_size_small" 
+                    android:hint="手机号" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dip"
+                 >
+
+                <EditText
+                    android:background="@drawable/edittext_selected"
+                    android:layout_width="0dip"
+                    android:layout_weight="7.5"
+                    android:paddingLeft="12dip"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="4dip"
+                    android:textSize="@dimen/text_size_small" 
+                    android:hint="请输入验证码" />
+
+               <RelativeLayout
+                android:id="@+id/validate_layout"
+                android:layout_width="0dip"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:background="@color/tabbar_color"
+                android:clickable="true" >
+
+                <Button
+                    android:id="@+id/validate_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mid_button_trans"
+                    android:gravity="center"
+                    android:text="发送验证码"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small" />
+            </RelativeLayout>
+
+           </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/next_password"
+                android:layout_width="match_parent"
+                android:layout_height="38dip"
+                android:layout_margin="8dip"
+                android:background="@color/tabbar_color"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mid_button_trans"
+                    android:gravity="center"
+                    android:text="下一步"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_sixteen" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </com.dazhongcun.widget.BounceScrollView>
+
+</LinearLayout>

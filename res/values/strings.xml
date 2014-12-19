@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">ItemWork</string>
+    <string name="app_name0">ItemWork</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

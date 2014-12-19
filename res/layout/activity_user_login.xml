@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 个人中心 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/tabbar_color"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@drawable/mid_button_trans"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <!--
+            android:drawableLeft="@drawable/back_seletor"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            -->
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_seletor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="登录"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="48dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/mid_button_trans"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="12dip"
+            android:paddingRight="12dip"
+            android:text="注册"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <com.dazhongcun.widget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/default_bg"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/default_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/list_selected" >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="手机号" />
+
+                <ImageView
+                    android:id="@+id/row_img1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:layout_marginTop="@dimen/tab_margin_top"
+                android:background="@drawable/list_selected" >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="密码" />
+
+                <ImageView
+                    android:id="@+id/row_img2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="38dip"
+                android:layout_margin="8dip"
+                android:background="@color/tabbar_color"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mid_button_trans"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_sixteen" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dip" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:text="忘记密码"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_micro" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dip"
+                android:layout_marginTop="8dip" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="可以用以下账号登录"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dip"
+                    android:src="@drawable/iocn_qq" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dip"
+                    android:src="@drawable/iocn_weixin" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dip"
+                    android:src="@drawable/iocn_weibo" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.dazhongcun.widget.BounceScrollView>
+
+</LinearLayout>

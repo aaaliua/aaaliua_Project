@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aaaliua.fragment.ContentFragment;
+import com.aaaliua.user.LoginActivity;
 import com.aaaliua.user.UserActivity;
+import com.dazhongcun.baseactivity.BaseFragmentActionBarActivity;
 import com.dazhongcun.widget.CircleImageView;
 import com.dazhongcun.widget.FragmentViewPagerAdapter;
 import com.dazhongcun.widget.PagerSlidingTabStrip;
@@ -23,13 +25,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseFragmentActionBarActivity {
 
 	@InjectView(R.id.sliding_tabs)
 	PagerSlidingTabStrip mSlidingTabLayout;
@@ -39,9 +42,12 @@ public class MainActivity extends FragmentActivity {
 	@InjectView(R.id.user_img)
 	CircleImageView userImage;
 	
+	@InjectView(R.id.add)
+	ImageView add;
+	
 	@InjectView(R.id.tab)
 	RelativeLayout tab;
-	final String[] TITLES = { "热门推荐", "图书", "手机电脑", "学习用品", "其他", "我发布的" };
+	final String[] TITLES = { "热门推荐", "图书", "手机电脑", "学习用品", "其他"};
 	private List<Fragment> fragments;
 
 	@Override
@@ -106,7 +112,10 @@ public class MainActivity extends FragmentActivity {
 	@OnClick(R.id.user_img)
 	public void toUser(View v){
 		
-		startActivity(new Intent(this,UserActivity.class));
+		startActivity(new Intent(this,LoginActivity.class));
+	}
+	@OnClick(R.id.add)
+	public void tologin(View v){
 	}
 	
 	// viewpag适配器

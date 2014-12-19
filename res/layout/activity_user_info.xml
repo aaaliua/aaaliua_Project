@@ -15,19 +15,30 @@
         android:background="@color/tabbar_color"
         android:gravity="center_vertical" >
 
-        <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:paddingLeft="8dip"
-        android:paddingRight="12dip"
-        android:background="@drawable/mid_button_trans"
-        android:clickable="true"
-        android:drawableLeft="@drawable/back_seletor"
-        android:text="@string/back"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_sixteen" />
+       <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@drawable/mid_button_trans"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_seletor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -131,6 +142,30 @@
                     android:src="@drawable/mm_submenu_normal" />
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:clickable="true"
+                android:background="@drawable/list_selected"
+                android:layout_marginTop="@dimen/tab_margin_top"
+                 >
+
+                <TextView
+                    style="@style/infotextTitleStyle"
+                    android:text="我发布的" />
+
+                
+
+                <ImageView
+                    android:id="@+id/row_img_my"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:scaleType="matrix"
+                    android:src="@drawable/mm_submenu_normal" />
+            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dip"
