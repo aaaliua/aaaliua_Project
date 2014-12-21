@@ -4,8 +4,8 @@ package com.aaaliua.user;
 import android.view.View;
 import butterknife.ButterKnife.Finder;
 
-public class UserActivity$$ViewInjector {
-  public static void inject(Finder finder, final com.aaaliua.user.UserActivity target, Object source) {
+public class HtmlView$$ViewInjector {
+  public static void inject(Finder finder, final com.aaaliua.user.HtmlView target, Object source) {
     View view;
     view = finder.findRequiredView(source, 2131034146, "field 'back' and method 'onBackClick'");
     target.back = view;
@@ -17,9 +17,12 @@ public class UserActivity$$ViewInjector {
           target.onBackClick(p0);
         }
       });
+    view = finder.findRequiredView(source, 2131034224, "field 'tipsWebView'");
+    target.tipsWebView = (android.webkit.WebView) view;
   }
 
-  public static void reset(com.aaaliua.user.UserActivity target) {
+  public static void reset(com.aaaliua.user.HtmlView target) {
     target.back = null;
+    target.tipsWebView = null;
   }
 }
