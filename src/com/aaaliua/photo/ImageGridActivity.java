@@ -94,7 +94,7 @@ public class ImageGridActivity extends BaseActivity {
                 }
 
 				if (Bimp.act_bool) {					
-					EventBus.getDefault().post(new Event.NotifacationPic());
+//					EventBus.getDefault().post(new Event.NotifacationPic());
 					Bimp.act_bool = false;
 				}
 				for (int i = 0; i < list.size(); i++) {
@@ -106,6 +106,12 @@ public class ImageGridActivity extends BaseActivity {
 			}
 
         });
+    }
+    @Override
+    protected void onDestroy() {
+    	EventBus.getDefault().post(new Event.NotifacationPic());
+    	super.onDestroy();
+    	
     }
 
 	private void initView() {
