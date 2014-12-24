@@ -26,13 +26,6 @@
             android:paddingLeft="8dip"
             android:paddingRight="8dip" >
 
-            <!--
-            android:drawableLeft="@drawable/back_seletor"
-            android:text="@string/back"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            -->
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +47,6 @@
             android:text="注册"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
-
     </RelativeLayout>
 
     <com.dazhongcun.widget.BounceScrollView
@@ -75,20 +67,20 @@
                 android:layout_height="48dip"
                 android:layout_marginLeft="8dip"
                 android:layout_marginRight="8dip"
-                android:layout_marginTop="13dp"
-                 >
+                android:layout_marginTop="13dp" >
 
                 <EditText
-                    android:background="@drawable/edittext_selected"
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
-                    android:paddingLeft="12dip"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
-                    android:maxLength="12"
+                    android:background="@drawable/edittext_selected"
+                    android:hint="手机号"
                     android:inputType="phone"
-                    android:textSize="@dimen/text_size_small" 
-                    android:hint="手机号" />
-
+                    android:maxLength="12"
+                    android:paddingLeft="12dip"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
             </RelativeLayout>
 
             <LinearLayout
@@ -96,42 +88,70 @@
                 android:layout_height="48dip"
                 android:layout_marginLeft="8dip"
                 android:layout_marginRight="8dip"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:layout_marginTop="4dip"
-                 >
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
 
                 <EditText
-                    android:background="@drawable/edittext_selected"
+                    android:id="@+id/code"
                     android:layout_width="0dip"
-                    android:layout_weight="7.5"
-                    android:paddingLeft="12dip"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
                     android:layout_marginRight="4dip"
-                    android:textSize="@dimen/text_size_small" 
-                    android:hint="请输入验证码" />
-
-               <RelativeLayout
-                android:id="@+id/validate_layout"
-                android:layout_width="0dip"
-                android:layout_weight="3"
-                android:layout_height="match_parent"
-                android:background="@color/tabbar_color"
-                android:clickable="true" >
-
-                <Button
-                    android:id="@+id/validate_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/mid_button_trans"
-                    android:gravity="center"
-                    android:text="发送验证码"
-                    android:textColor="@color/white"
+                    android:layout_weight="7.5"
+                    android:maxLength="8"
+                    android:background="@drawable/edittext_selected"
+                    android:hint="请输入验证码"
+                    android:paddingLeft="12dip"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/text_size_small" />
-            </RelativeLayout>
 
-           </LinearLayout>
+                <RelativeLayout
+                    android:id="@+id/validate_layout"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@color/tabbar_color"
+                    android:clickable="true" >
+
+                    <Button
+                        android:id="@+id/validate_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/mid_button_trans"
+                        android:gravity="center"
+                        android:text="发送验证码"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/trans" >
+                
+                <CheckBox
+                    android:id="@+id/select_xieyi" 
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="8dip"
+                    android:button="@drawable/checkbox"
+                    android:text="同意"
+                    />
+                <TextView 
+                    android:id="@+id/toxieyi"
+                    android:layout_toRightOf="@+id/select_xieyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="《使用协议》"
+                    android:textColor="@color/tabbar_color"
+                    />
+                
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/next_password"
@@ -150,7 +170,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_sixteen" />
             </RelativeLayout>
-
         </LinearLayout>
     </com.dazhongcun.widget.BounceScrollView>
 

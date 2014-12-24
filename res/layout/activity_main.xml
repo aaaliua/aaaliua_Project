@@ -20,7 +20,7 @@
             android:layout_height="36dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dip"
-            android:src="@drawable/hugh"
+            android:src="@drawable/img_touxiang"
             app:border_color="@color/tabbar_color"
             app:border_width="1dp" />
 

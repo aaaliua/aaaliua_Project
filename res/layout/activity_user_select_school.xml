@@ -26,12 +26,6 @@
             android:paddingLeft="8dip"
             android:paddingRight="8dip" >
 
-            <!--
-            android:drawableLeft="@drawable/back_seletor"
-            android:text="@string/back"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            -->
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -67,14 +61,8 @@
             android:src="@drawable/btn_dingwei_normal" />
     </RelativeLayout>
 
-    <com.dazhongcun.widget.BounceScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/default_bg"
-        android:scrollbars="none" >
 
         <LinearLayout
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/default_bg"
@@ -85,35 +73,39 @@
                 android:layout_height="48dip"
                 android:layout_marginLeft="8dip"
                 android:layout_marginRight="8dip"
-                android:layout_marginTop="13dp"
-                 >
+                android:layout_marginTop="13dp" >
 
                 <EditText
                     android:id="@+id/query"
-                    android:background="@color/white"
                     android:layout_width="match_parent"
-                    android:paddingLeft="12dip"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
-                    android:maxLength="12"
-                    android:inputType="text"
+                    android:background="@color/white"
+                    android:hint="搜索"
                     android:imeOptions="actionSearch"
-                    android:textSize="@dimen/text_size_small" 
-                    android:hint="搜索" />
+                    android:inputType="text"
+                    android:maxLength="12"
+                    android:paddingLeft="12dip"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
 
-                <ImageView 
+                <ImageView
                     android:layout_width="48dip"
                     android:layout_height="48dip"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:padding="12dip"
-                    android:src="@drawable/img_fangdajing"
-                    />
+                    android:src="@drawable/img_fangdajing" />
             </RelativeLayout>
 
-           
-
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:layout_marginBottom="1dip"
+                android:cacheColorHint="@android:color/transparent"
+                android:scrollbars="none" />
         </LinearLayout>
-    </com.dazhongcun.widget.BounceScrollView>
 
 </LinearLayout>

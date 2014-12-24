@@ -79,11 +79,13 @@
                     android:layout_centerVertical="true"
                     >
                     <TextView
+                        android:id="@+id/name"
                     android:textColor="@color/white"
                       android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="海贼王" />
                     <TextView
+                        android:id="@+id/phone"
                         android:textColor="@color/white"
                           android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,6 +116,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/selectSchool"
                 android:layout_width="match_parent"
                 android:layout_height="48dip"
                 android:layout_marginTop="0.5dp"
@@ -126,8 +129,8 @@
                     android:text="@string/user_school_name" />
 
                 <TextView
+                    android:id="@+id/school_name"
                     style="@style/infotextStyle"
-                    android:id="@+id/comuntiyName"
                     android:layout_toLeftOf="@+id/row_img1"
                     android:text="上海复旦大学" />
 
@@ -203,10 +206,10 @@
                     android:text="@string/user_updata_version" />
 
                 <TextView
+                    android:id="@+id/version"
                     style="@style/infotextStyle"
-                    android:id="@+id/position"
                     android:layout_toLeftOf="@+id/row_img3"
-                    android:text="当前1.0" />
+                    android:text="" />
 
                 <ImageView
                     android:id="@+id/row_img3"
@@ -321,6 +324,7 @@
                 
                 >
             <TextView 
+                android:id="@+id/logout"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ItemWork</string>
+    <string name="app_name">物友</string>
     <string name="app_name0">ItemWork</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
-    
-    
     <string name="user_setting">设置</string>
     <string name="user_img">头像</string>
     <string name="user_school_name">学校</string>
@@ -17,4 +14,18 @@
     <string name="user_clear_cache">清除缓存</string>
     <string name="user_about_me">关于我们</string>
     <string name="user_xieyi">使用协议</string>
+    
+    <string name="reg_pwd_input_empty">密码不允许为空</string>
+    <string name="reg_pwd_input_err">密码最少需6位</string>
+    <string name="reg_repwd_input_empty">确认密码不允许为空</string>
+    <string name="reg_pwd_err">密码与确认密码不一致</string>
+    <string name="reg_mobile_input_empty">手机号码不允许为空</string>
+    <string name="reg_mobile_input_err">手机号码输入错误</string>
+    <string name="reg_email_input_empty">邮箱不允许为空</string>
+    <string name="reg_email_input_err">邮箱地址输入错误</string>
+    <string name="reg_error">注册请求失败</string>
+
+     <string name="decline">取消</string>
+    <string name="accept">确定</string>
+    <string name="version">当前%1$s</string>
 </resources>

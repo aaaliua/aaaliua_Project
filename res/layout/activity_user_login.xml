@@ -92,9 +92,18 @@
                 android:layout_marginTop="13dp"
                 android:background="@drawable/list_selected" >
 
-                <TextView
-                    style="@style/infotextTitleStyle"
-                    android:text="手机号" />
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:hint="手机号"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLength="12"
+                    android:paddingLeft="12dip"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
 
                 <ImageView
                     android:id="@+id/row_img1"
@@ -104,6 +113,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dip"
                     android:scaleType="matrix"
+                    android:visibility="gone"
                     android:src="@drawable/mm_submenu_normal" />
             </RelativeLayout>
 
@@ -115,9 +125,18 @@
                 android:layout_marginTop="@dimen/tab_margin_top"
                 android:background="@drawable/list_selected" >
 
-                <TextView
-                    style="@style/infotextTitleStyle"
-                    android:text="密码" />
+              <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:hint="密码"
+                    android:imeOptions="actionSearch"
+                    android:inputType="textPassword"
+                    android:maxLength="12"
+                    android:paddingLeft="12dip"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
 
                 <ImageView
                     android:id="@+id/row_img2"
@@ -127,6 +146,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dip"
                     android:scaleType="matrix"
+                    android:visibility="gone"
                     android:src="@drawable/mm_submenu_normal" />
             </RelativeLayout>
 
@@ -154,6 +174,7 @@
                 android:layout_marginRight="8dip" >
 
                 <TextView
+                    android:id="@+id/forgetPassword"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|right"

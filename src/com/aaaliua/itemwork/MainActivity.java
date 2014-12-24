@@ -5,9 +5,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aaaliua.event.Event.Logout;
 import com.aaaliua.fragment.ContentFragment;
 import com.aaaliua.user.LoginActivity;
 import com.aaaliua.user.UserActivity;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 import com.dazhongcun.baseactivity.BaseFragmentActionBarActivity;
 import com.dazhongcun.widget.CircleImageView;
 import com.dazhongcun.widget.FragmentViewPagerAdapter;
@@ -15,6 +18,8 @@ import com.dazhongcun.widget.PagerSlidingTabStrip;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+
+import de.greenrobot.event.EventBus;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -44,6 +49,8 @@ public class MainActivity extends BaseFragmentActionBarActivity {
 	
 	@InjectView(R.id.add)
 	ImageView add;
+	
+	
 	
 	@InjectView(R.id.tab)
 	RelativeLayout tab;
@@ -111,11 +118,45 @@ public class MainActivity extends BaseFragmentActionBarActivity {
 	
 	@OnClick(R.id.user_img)
 	public void toUser(View v){
-		
-		startActivity(new Intent(this,LoginActivity.class));
+		if(LoginActivity.getTokenID() == null || "".equals(LoginActivity.getTokenID())){
+			
+			startActivity(new Intent(this,LoginActivity.class));
+		}else{
+			startActivity(new Intent(this,UserActivity.class));
+		}
 	}
 	@OnClick(R.id.add)
 	public void tologin(View v){
+		if(LoginActivity.getTokenID() == null || "".equals(LoginActivity.getTokenID())){
+			new MaterialDialog.Builder(this).title("登录")
+			.content("您尚未登录，无法发布物品信息,是否登录?")
+			.theme(Theme.LIGHT)
+			// the default is light, so you don't
+			// need this line
+			.positiveText(R.string.accept)
+			// the default is 'Accept'
+			.positiveColor(getResources().getColor(R.color.tabbar_color))
+			.negativeText(R.string.decline) // leaving this
+											// line out
+											// will remove
+											// the negative
+											// button
+			.callback(new MaterialDialog.Callback() {
+
+				@Override
+				public void onPositive(MaterialDialog dialog) {
+					startActivity(new Intent(MainActivity.this,LoginActivity.class));
+					dialog.dismiss();
+				}
+
+				@Override
+				public void onNegative(MaterialDialog dialog) {
+					dialog.dismiss();
+				}
+			}).build().show();
+		}else{
+//			startActivity(new Intent(MainActivity.this,AddItem.class));
+		}
 	}
 	
 	// viewpag适配器
