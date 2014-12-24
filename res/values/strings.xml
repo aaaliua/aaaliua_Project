@@ -28,4 +28,6 @@
      <string name="decline">取消</string>
     <string name="accept">确定</string>
     <string name="version">当前%1$s</string>
+    <string name="count">(%1$s)</string>
+     <string name="selectImage">选择相册</string>
 </resources>

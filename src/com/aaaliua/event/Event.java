@@ -19,6 +19,9 @@ public class Event {
     public static class Forget{
     	
     }
+    public static class NotifacationPic{
+    	
+    }
     
    
 }

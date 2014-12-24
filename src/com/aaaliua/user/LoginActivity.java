@@ -111,7 +111,7 @@ public class LoginActivity extends BaseActionBarActivity {
 			@Override
 			public void onStart() {
 				super.onStart();
-				progressDialog.setMessage("正在加入该学校");
+				progressDialog.setMessage("正在登录");
 				progressDialog.setCancelable(false);
 				progressDialog.show();
 			}

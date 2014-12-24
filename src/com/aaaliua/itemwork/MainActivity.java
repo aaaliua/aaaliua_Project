@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.aaaliua.event.Event.Logout;
 import com.aaaliua.fragment.ContentFragment;
+import com.aaaliua.ui.AddItem;
 import com.aaaliua.user.LoginActivity;
 import com.aaaliua.user.UserActivity;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -155,7 +156,7 @@ public class MainActivity extends BaseFragmentActionBarActivity {
 				}
 			}).build().show();
 		}else{
-//			startActivity(new Intent(MainActivity.this,AddItem.class));
+			startActivity(new Intent(MainActivity.this,AddItem.class));
 		}
 	}
 	

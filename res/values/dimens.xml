@@ -7,4 +7,5 @@
     
     <dimen name="tab_margin_top">0.5dp</dimen>
     <dimen name="text_margin_left">12dip</dimen> 
+    <dimen name="height_top_bar">48dip</dimen>
 </resources>
