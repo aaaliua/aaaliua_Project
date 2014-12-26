@@ -26,13 +26,6 @@
             android:paddingLeft="8dip"
             android:paddingRight="8dip" >
 
-            <!--
-            android:drawableLeft="@drawable/back_seletor"
-            android:text="@string/back"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small"
-            -->
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,58 +47,374 @@
             android:text="发布"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
-
     </RelativeLayout>
 
-    <com.dazhongcun.widget.BounceScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/default_bg"
-        android:scrollbars="none" >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
-        <LinearLayout
-            xmlns:tools="http://schemas.android.com/tools"
+        <com.dazhongcun.widget.BounceScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/done"
             android:background="@color/default_bg"
-            android:orientation="vertical" >
+            android:scrollbars="none" >
 
-            <LinearLayout 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="100dip"
-                android:orientation="vertical"
-                android:background="@color/white"
-                >
-                <TextView 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dip"
-                    android:text="添加图片(4张)"
-                    android:textColor="@color/textcolor"
-                    />
-               <com.dazhongcun.widget.NoScorllGridView
-                android:id="@+id/Photogridview"
+            <LinearLayout
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="8dip"
-                android:layout_marginBottom="8dip"
-                android:cacheColorHint="#00000000"
-                android:listSelector="#00000000"
-                android:numColumns="4"
-                android:scrollbars="none"
-                android:verticalSpacing="2dip" />
-            </LinearLayout>
-            
-            <LinearLayout 
-                android:layout_width="match_parent"
-                android:background="@color/white"
-                android:layout_height="72dip"
-                android:layout_marginTop="8dip"
-                ></LinearLayout>
-            
+                android:background="@color/default_bg"
+                android:orientation="vertical" >
 
-        </LinearLayout>
-    </com.dazhongcun.widget.BounceScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:minHeight="100dip"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dip"
+                        android:text="添加图片(4张)"
+                        android:textColor="@color/textcolor" />
+
+                    <com.dazhongcun.widget.NoScorllGridView
+                        android:id="@+id/Photogridview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dip"
+                        android:layout_marginLeft="8dip"
+                        android:cacheColorHint="#00000000"
+                        android:listSelector="#00000000"
+                        android:numColumns="4"
+                        android:scrollbars="none"
+                        android:verticalSpacing="2dip" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip"
+                    android:animateLayoutChanges="true"
+                    android:background="@color/default_bg"
+                    android:minHeight="72dip"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dip"
+                        android:background="@color/white"
+                        android:hint="标题"
+                        android:inputType="text"
+                        android:maxLength="12"
+                        android:paddingLeft="12dip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="48dip"
+                        android:layout_marginTop="1dip"
+                        android:background="@android:color/white" >
+
+                        <Spinner
+                            android:id="@+id/type"
+                            android:layout_width="fill_parent"
+                            android:layout_height="48dip"
+                            android:layout_toRightOf="@+id/imageView4"
+                            android:completionThreshold="1"
+                            android:cursorVisible="true"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="30" />
+
+                        <TextView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:text="类型"
+                            android:textColor="@color/black"
+                            android:tint="@color/grey_medium" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dip"
+                        android:animateLayoutChanges="true"
+                        android:orientation="horizontal" >
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="48dip"
+                            android:layout_marginRight="1dip"
+                            android:layout_weight="1"
+                            android:background="@android:color/white" >
+
+                            <EditText
+                                android:id="@+id/number"
+                                android:layout_width="fill_parent"
+                                android:layout_height="48dip"
+                                android:layout_toRightOf="@+id/imageView9"
+                                android:background="@color/white"
+                                android:hint="数量"
+                                android:inputType="number"
+                                android:paddingLeft="12dip"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_small" />
+
+                            <TextView
+                                android:id="@+id/imageView9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="false"
+                                android:layout_alignParentStart="false"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:text="数量"
+                                android:textColor="@color/black"
+                                android:tint="@color/grey_medium" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="48dip"
+                            android:layout_weight="1"
+                            android:background="@android:color/white" >
+
+                            <Spinner
+                                android:id="@+id/item"
+                                android:layout_width="fill_parent"
+                                android:layout_height="48dip"
+                                android:layout_toRightOf="@+id/imageView5"
+                                android:completionThreshold="1"
+                                android:cursorVisible="true"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="30" />
+
+                            <TextView
+                                android:id="@+id/imageView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="false"
+                                android:layout_alignParentStart="false"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:text="单位"
+                                android:textColor="@color/black"
+                                android:tint="@color/grey_medium" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="48dip"
+                        android:layout_marginTop="1dip"
+                        android:background="@android:color/white" >
+
+                        <Spinner
+                            android:id="@+id/status"
+                            android:layout_width="fill_parent"
+                            android:layout_height="48dip"
+                            android:layout_toRightOf="@+id/imageView1"
+                            android:completionThreshold="1"
+                            android:cursorVisible="true"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="30" />
+
+                        <TextView
+                            android:id="@+id/imageView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:text="状态"
+                            android:textColor="@color/black"
+                            android:tint="@color/grey_medium" />
+                    </RelativeLayout>
+
+                      <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="48dip"
+                        android:layout_marginTop="1dip"
+                        android:background="@android:color/white" >
+
+                        <Spinner
+                            android:id="@+id/new_type"
+                            android:layout_width="fill_parent"
+                            android:layout_height="48dip"
+                            android:layout_toRightOf="@+id/imageView11"
+                            android:completionThreshold="1"
+                            android:cursorVisible="true"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="30" />
+
+                        <TextView
+                            android:id="@+id/imageView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:text="新旧程度"
+                            android:textColor="@color/black"
+                            android:tint="@color/grey_medium" />
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/select_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dip"
+                        android:animateLayoutChanges="true"
+                        android:orientation="horizontal" >
+
+                        <RelativeLayout
+                            android:id="@+id/jie_layout"
+                            android:layout_width="0dp"
+                            android:layout_height="48dip"
+                            android:layout_marginRight="1dip"
+                            android:layout_weight="1"
+                            android:background="@android:color/white" >
+
+                            <Spinner
+                                android:id="@+id/time"
+                                android:layout_width="fill_parent"
+                                android:layout_height="48dip"
+                                android:layout_toRightOf="@+id/imageView2"
+                                android:completionThreshold="1"
+                                android:cursorVisible="true"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="30" />
+
+                            <TextView
+                                android:id="@+id/imageView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="false"
+                                android:layout_alignParentStart="false"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:text="借出"
+                                android:textColor="@color/black"
+                                android:tint="@color/grey_medium" />
+                        </RelativeLayout>
+
+                        
+                         <RelativeLayout
+                             android:id="@+id/jine_layout"
+                            android:layout_width="0dp"
+                            android:layout_height="48dip"
+                            android:layout_marginRight="1dip"
+                            android:layout_weight="1"
+                            android:background="@android:color/white" >
+
+                               
+                            <EditText
+                                android:id="@+id/mai"
+                                android:layout_width="fill_parent"
+                                android:layout_height="48dip"
+                                android:layout_toRightOf="@+id/imageView0"
+                                android:background="@color/white"
+                                android:hint="价格"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="12dip"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_small" />
+
+                            <TextView
+                                android:id="@+id/imageView0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="false"
+                                android:layout_alignParentStart="false"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:text="金额"
+                                android:textColor="@color/black"
+                                android:tint="@color/grey_medium" />
+                        </RelativeLayout>
+                        
+                        
+                      
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dip"
+                        android:layout_marginTop="1dip"
+                        android:background="@color/white"
+                        android:hint="描述"
+                        android:inputType="text"
+                        android:maxLength="12"
+                        android:paddingLeft="12dip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <EditText
+                        android:id="@+id/linkman"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dip"
+                        android:layout_marginTop="1dip"
+                        android:background="@color/white"
+                        android:hint="联系人"
+                        android:inputType="text"
+                        android:maxLength="12"
+                        android:paddingLeft="12dip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <EditText
+                        android:id="@+id/linkphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dip"
+                        android:layout_marginTop="1dip"
+                        android:background="@color/white"
+                        android:hint="联系方式"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:paddingLeft="12dip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_small" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.dazhongcun.widget.BounceScrollView>
+
+        <RelativeLayout
+            android:id="@+id/done"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/tabbar_color"
+            android:clickable="true" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/mid_button_trans"
+                android:gravity="center"
+                android:text="发布"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_sixteen" />
+        </RelativeLayout>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -43,6 +43,8 @@ import com.afollestad.materialdialogs.Theme;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.location.LocationClientOption.LocationMode;
 import com.dazhongcun.baseactivity.BaseActionBarActivity;
 import com.dazhongcun.utils.StringUtils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -87,8 +89,12 @@ public class SelectSchoolActivity extends BaseActionBarActivity {
 		mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 		mRecyclerView.setLayoutManager(mLayoutManager);
 
+		LocationClientOption option = new LocationClientOption();
+		option.setLocationMode(LocationMode.Hight_Accuracy);//设置定位模式
+		
 		mLocationClient = new LocationClient(getApplicationContext());
 		mLocationClient.registerLocationListener(myListener);
+		mLocationClient.setLocOption(option);
 		mLocationClient.start();
 		
 		query.setOnKeyListener(new OnKeyListener() {
@@ -127,6 +133,8 @@ public class SelectSchoolActivity extends BaseActionBarActivity {
 			@Override
 			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 				System.out.println(loadFlag);
+				if(makes == null)
+					return;
 				if (!loading
 						&& mLayoutManager.findLastVisibleItemPosition() == makes
 								.size() - 1 && loadFlag) {
@@ -222,6 +230,7 @@ public class SelectSchoolActivity extends BaseActionBarActivity {
 					public void onFailure(Throwable error) {
 						// 设置list的Emptyview
 						number -= 1;
+						if(adapter != null && adapter.getItemCount() >0)
 						adapter.remove(adapter.getItemCount() - 1);
 						loading = false;
 						loadFlag = false;
@@ -244,6 +253,7 @@ public class SelectSchoolActivity extends BaseActionBarActivity {
 		public void onReceiveLocation(BDLocation location) {
 			if (location == null) {
 				Toaster.showOneToast("定位你失败");
+				mLocationClient.stop();
 				return;
 			}
 			getLocationList(location.getLatitude(), location.getLongitude());

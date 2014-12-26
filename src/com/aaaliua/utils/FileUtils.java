@@ -228,6 +228,31 @@ public class FileUtils {
 		}
 	}
 	
+	
+	public static String saveBitmapCallback(Bitmap bm, String picName) {
+		//Log.e("", "保存图片");
+		File f = null;
+		try {
+			if (!isFileExist("")) {
+				File tempf = createSDDir("");
+			}
+			f = new File(AppApplication.mSdcardImageCamera+File.separator, picName + ".JPEG"); 
+			if (f.exists()) {
+				f.delete();
+			}
+			FileOutputStream out = new FileOutputStream(f);
+			bm.compress(Bitmap.CompressFormat.JPEG, 90, out);
+			out.flush();
+			out.close();
+			//Log.e("", "已经保存");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return f.toString();
+	}
+	
 	public static void delFile(String fileName){
 		File file = new File(AppApplication.mSdcardImageCamera+File.separator + fileName);
 		if(file.isFile()){

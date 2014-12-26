@@ -10,6 +10,7 @@ import com.aaaliua.fragment.ContentFragment;
 import com.aaaliua.ui.AddItem;
 import com.aaaliua.user.LoginActivity;
 import com.aaaliua.user.UserActivity;
+import com.aaaliua.utils.Toaster;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
 import com.dazhongcun.baseactivity.BaseFragmentActionBarActivity;
@@ -155,9 +156,15 @@ public class MainActivity extends BaseFragmentActionBarActivity {
 					dialog.dismiss();
 				}
 			}).build().show();
+		}else if(LoginActivity.getUser(LoginActivity.getTokenID()).getSchoo() == null || "".equals(LoginActivity.getUser(LoginActivity.getTokenID()).getSchoo())){
+			Toaster.showOneToast("您尚未选择学校!");
+			
 		}else{
 			startActivity(new Intent(MainActivity.this,AddItem.class));
 		}
+		
+		
+		
 	}
 	
 	// viewpag适配器

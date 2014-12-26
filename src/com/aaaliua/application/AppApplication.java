@@ -188,6 +188,7 @@ public class AppApplication extends BaseApplication {
 	public static AsyncHttpClient getHttpClient() {
 		if (mClient == null) {
 			mClient = new AsyncHttpClient();
+			mClient.setTimeout(6000);
 		}
 		return mClient;
 	}

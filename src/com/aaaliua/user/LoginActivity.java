@@ -196,5 +196,26 @@ public class LoginActivity extends BaseActionBarActivity {
 				AppApplication.getContext(), AppApplication.PREFERENCE_NAME,
 				UserEntity.JSON_uid, "");
 	}
+	
+	public static BaseAppDbHelper<UserEntity> statusdbHelper =null;
+	public static BaseAppDbHelper<UserEntity> getDBHelper(){
+		if(statusdbHelper == null){
+			statusdbHelper = new BaseAppDbHelper<UserEntity>();
+			return statusdbHelper;
+		}else{
+			return statusdbHelper;
+		}
+	}
+	
+	public static UserEntity getUser(String id){
+		UserEntity ent = new UserEntity();
+		ent = getDBHelper().queryObjForEq(UserEntity.class,
+				UserEntity.JSON_uid, id);
+		if(ent != null){
+			return ent;
+		}else{
+			return null;
+		}
+	}
 
 }

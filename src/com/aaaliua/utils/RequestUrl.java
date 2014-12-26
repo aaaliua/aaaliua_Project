@@ -23,5 +23,11 @@ public class RequestUrl {
 	//重置密码获取验证码
 	public static final String FORGET_PASSWORD = BASE_URL + "/login/forget1";
 	//重置密码
-	public static final String FORGET_PASSWORD2 = BASE_URL + "/login/forget2 ";
+	public static final String FORGET_PASSWORD2 = BASE_URL + "/login/forget2";
+	//类型
+	public static final String GET_TYPE = BASE_URL + "/message/gopublish";
+	//上传图片获取路径
+	public static final String GET_UPLOADFILE = BASE_URL + "/message/upload";
+	//发布
+	public static final String UPLOAD = BASE_URL + "/message/publish";
 }

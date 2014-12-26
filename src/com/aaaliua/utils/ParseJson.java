@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.aaaliua.entity.BaseType;
+import com.aaaliua.entity.ItemType;
 import com.aaaliua.entity.MakeEntity;
 import com.aaaliua.entity.Status;
 import com.aaaliua.entity.UserEntity;
@@ -34,6 +36,93 @@ public class ParseJson {
 			return null;
 		}
 	
+		
+		//解析发布类型
+		public static BaseType parseType(String json){
+			BaseType type = null ;
+			try {
+				
+				JSONObject obj = new JSONObject(json);
+				String requestcode = obj.optString("status");
+				if(SUCCESSFUL.equals(requestcode)){
+					type = new BaseType();
+					JSONObject entobj = obj.getJSONObject(UserEntity.JSON_MAP);
+					//解析单位
+					JSONArray unitarr = entobj.getJSONArray(BaseType.JSON_UNIT);
+					List<ItemType> unlist = new ArrayList<ItemType>();
+					ItemType unselect = new ItemType();
+					unselect.setId("-1");
+					unselect.setName("请选择:");
+					unlist.add(unselect);
+					for(int i = 0;i<unitarr.length();i++){
+						ItemType tp = new ItemType();
+						JSONObject unobj = unitarr.getJSONObject(i);
+						tp.setId(unobj.optString(ItemType.JSON_ID));
+						tp.setName(unobj.optString(ItemType.JSON_NAME));
+						unlist.add(tp);
+					}
+					type.setUnits(unlist);
+					//解析状态
+					JSONArray pubarray = entobj.getJSONArray(BaseType.JSON_PUBLISH_TYPE);
+					List<ItemType> publist = new ArrayList<ItemType>();
+					publist.add(unselect);
+					for(int i = 0;i<pubarray.length();i++){
+						ItemType tp = new ItemType();
+						JSONObject unobj = pubarray.getJSONObject(i);
+						tp.setId(unobj.optString(ItemType.JSON_ID));
+						tp.setName(unobj.optString(ItemType.JSON_NAME));
+						publist.add(tp);
+					}
+					type.setPublish_type(publist);
+					//解析类型
+					JSONArray typearray = entobj.getJSONArray(BaseType.JSON_TYPE);
+					List<ItemType> typelist = new ArrayList<ItemType>();
+					typelist.add(unselect);
+					for(int i = 0;i<typearray.length();i++){
+						ItemType tp = new ItemType();
+						JSONObject unobj = typearray.getJSONObject(i);
+						tp.setId(unobj.optString(ItemType.JSON_ID));
+						tp.setName(unobj.optString(ItemType.JSON_NAME));
+						typelist.add(tp);
+					}
+					type.setType(typelist);
+					//解析新旧
+					JSONArray newarray = entobj.getJSONArray(BaseType.JSON_NEW_TYPE);
+					List<ItemType> newlist = new ArrayList<ItemType>();
+					newlist.add(unselect);
+					for(int i = 0;i<newarray.length();i++){
+						ItemType tp = new ItemType();
+						JSONObject unobj = newarray.getJSONObject(i);
+						tp.setId(unobj.optString(ItemType.JSON_ID));
+						tp.setName(unobj.optString(ItemType.JSON_NAME));
+						newlist.add(tp);
+					}
+					type.setNew_type(newlist);
+					//解析年月
+					JSONArray monarray = entobj.getJSONArray(BaseType.JSON_MONTH_NUM);
+					List<ItemType> monlist = new ArrayList<ItemType>();
+					monlist.add(unselect);
+					for(int i = 0;i<monarray.length();i++){
+						ItemType tp = new ItemType();
+						JSONObject unobj = monarray.getJSONObject(i);
+						tp.setId(unobj.optString(ItemType.JSON_ID));
+						tp.setName(unobj.optString(ItemType.JSON_NAME));
+						monlist.add(tp);
+					}
+					type.setMonth_num(monlist);
+				}else{
+					
+					Toaster.showOneToast(obj.optString("message"));
+					type = null;
+				}
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+				type = null;
+			}
+			
+			return type;
+		}
 	
 	public static ValidateCode parseCode(String json){
 		ValidateCode code = new ValidateCode();

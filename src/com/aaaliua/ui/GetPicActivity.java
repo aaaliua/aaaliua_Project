@@ -132,8 +132,8 @@ public class GetPicActivity extends BaseActionBarActivity implements OnClickList
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-//		switch (v.getId()) {
-//		case R.id.back:
+		switch (v.getId()) {
+		case R.id.back:
 //		   if (Bimp.act_bool){
 //			Intent intent = new Intent(GetPicActivity.this,PublishedActivity.class);
 //			Bundle bundle = new Bundle();
@@ -142,12 +142,12 @@ public class GetPicActivity extends BaseActionBarActivity implements OnClickList
 //			startActivity(intent);
 //			Bimp.act_bool=false;
 //			}
-//			this.finish();
-//			
-//			break;
-//
-//		default:
-//			break;
-//		}
+			this.finish();
+			
+			break;
+
+		default:
+			break;
+		}
 	}
 }
