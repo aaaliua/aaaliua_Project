@@ -30,4 +30,22 @@ public class RequestUrl {
 	public static final String GET_UPLOADFILE = BASE_URL + "/message/upload";
 	//发布
 	public static final String UPLOAD = BASE_URL + "/message/publish";
+	//编辑
+	public static final String UPLOAD_edit = BASE_URL + "/message/editmessage";
+	//获取数据
+	public static final String GET_DATA = BASE_URL + "/message/messageByType";
+	//获取评论
+	public static final String GET_MSG = BASE_URL + "/message/getdiscuss";
+	//评论
+	public static final String POST_MSG = BASE_URL + "/message/dodiscuss";
+	//赞
+	public static final String POST_zan = BASE_URL + "/message/praise";
+	//我的列表
+	public static final String MY_LIST = BASE_URL + "/message/personMessageList";
+	//删除
+	public static final String delete_info = BASE_URL + "/message/deleteMessage";
+	//改变状态 status
+	public static final String CHANGE_STATUS = BASE_URL + "/message/changeState";
+	//修改用户资料
+	public static final String EDIT_USER = BASE_URL + "/register/editUser";
 }

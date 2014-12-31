@@ -142,7 +142,9 @@ public class RegisterActivity extends BaseActionBarActivity{
 	}
 	@OnClick(R.id.toxieyi)
 	public void onXieyiClick(View v){
-		startActivity(new Intent(this,HtmlView.class));
+		Intent it = new Intent(this,HtmlView.class);
+		it.putExtra("code", 1);
+		startActivity(it);
 	}
 	@OnClick(R.id.next_password)
 	public void onNextPasswordClick(View v){

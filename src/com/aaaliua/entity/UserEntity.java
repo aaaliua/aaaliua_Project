@@ -1,5 +1,6 @@
 package com.aaaliua.entity;
 
+import com.baoyz.pg.Parcelable;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -8,6 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * @author LT
  *
  */
+@Parcelable
 @DatabaseTable(tableName = "userentity")
 public class UserEntity {
 

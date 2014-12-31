@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -21,12 +22,16 @@ import com.aaaliua.event.Event;
 import com.aaaliua.event.Event.RegisterEvent;
 import com.aaaliua.itemwork.R;
 import com.aaaliua.utils.BaseMember;
+import com.aaaliua.utils.CommonUtils;
 import com.aaaliua.utils.ParseJson;
 import com.aaaliua.utils.RequestUrl;
 import com.aaaliua.utils.Toaster;
 import com.dazhongcun.baseactivity.BaseActionBarActivity;
 import com.dazhongcun.utils.PreferencesUtils;
 import com.dazhongcun.utils.StringUtils;
+import com.easemob.EMCallBack;
+import com.easemob.chat.EMChat;
+import com.easemob.chat.EMChatManager;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -81,6 +86,10 @@ public class LoginActivity extends BaseActionBarActivity {
 	@OnClick(R.id.login)
 	public void onloginClick(View v) {
 //		startActivity(new Intent(this, UserActivity.class));
+		if (!CommonUtils.isNetWorkConnected(this)) {
+			Toast.makeText(this, "网路不可用", Toast.LENGTH_SHORT).show();
+			return;
+		}
 		if(validInput()){
 			login();
 		}
@@ -137,9 +146,35 @@ public class LoginActivity extends BaseActionBarActivity {
 					// 如果有localID就跟新数据库 否则插入数据库
 					dbHelper.createOrUpdate(bean);
 				}
+				final String username = bean.getUid();
+				final String pass = bean.getPasswd();
+				//登录环信系统
+				EMChatManager.getInstance().login(username, pass, new EMCallBack() {
+					
+					@Override
+					public void onError(int arg0, String arg1) {
+					}
+
+					@Override
+					public void onProgress(int arg0, String arg1) {
+					}
+
+					@Override
+					public void onSuccess() {
+						runOnUiThread(new Runnable() {
+							public void run() {
+								Toaster.showOneToast("登录聊天系统成功");
+							}
+						});
+						
+						EMChat.getInstance().setAppInited();
+						EventBus.getDefault().post(new Event.RegisterEvent(true));
+						startActivity(new Intent(LoginActivity.this, UserActivity.class));
+					}
+					
+				});
 				
-				EventBus.getDefault().post(new Event.RegisterEvent(true));
-				startActivity(new Intent(LoginActivity.this, UserActivity.class));
+				
 				
 			}
 			

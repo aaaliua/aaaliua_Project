@@ -4,4 +4,5 @@
    <color name="tabbar_color">#DE4212</color>
    <color name="default_bg">#dcdbdb</color>
    <color name="textcolor">#969696</color>
+   <color name="bg_color">#E5E5E5</color>
 </resources>

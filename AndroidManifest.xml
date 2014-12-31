@@ -94,9 +94,15 @@
         </activity>
         <activity android:name="com.aaaliua.user.ForgetPassword" >
         </activity>
-        <activity android:name="com.aaaliua.ui.AddItem" >
+        <activity android:name="com.aaaliua.user.EditInfo" android:theme="@style/android:Theme.Holo.Light.NoActionBar">
         </activity>
+        <activity android:name="com.aaaliua.user.MyList" >
+        </activity>
+        <activity android:name="com.aaaliua.ui.AddItem" />
+        <activity android:name="com.aaaliua.ui.EditItem" />
+        <activity android:name="com.aaaliua.ui.ItemInfoActivity" android:windowSoftInputMode="stateHidden" android:theme="@style/android:Theme.Holo.Light.NoActionBar"/> 
         
+        <activity android:name="com.aaaliua.chatutils.ChatHistoryAllActivity"></activity>
         <!-- 画廊 -->
         <activity
             android:name="com.aaaliua.photo.PhotoActivity"
@@ -107,6 +113,16 @@
         <activity
             android:name="com.aaaliua.photo.ImageGridActivity"
             android:screenOrientation="portrait" />
+        
+        
+        
+          <!-- 设置环信应用的appkey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="shane#wuyou" />
+        <!-- 声明sdk所需的service -->
+        <service android:name="com.easemob.chat.EMChatService" />
+        
     </application>
 
 </manifest>

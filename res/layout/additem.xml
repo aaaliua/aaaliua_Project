@@ -364,7 +364,6 @@
                         android:background="@color/white"
                         android:hint="描述"
                         android:inputType="text"
-                        android:maxLength="12"
                         android:paddingLeft="12dip"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_small" />

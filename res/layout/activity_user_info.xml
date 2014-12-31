@@ -65,6 +65,7 @@
             android:orientation="vertical" >
 
             <RelativeLayout
+                android:id="@+id/touserEdit"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:clickable="true"
@@ -146,6 +147,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/mylist"
                 android:layout_width="match_parent"
                 android:layout_height="48dip"
                 android:clickable="true"
@@ -274,6 +276,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/aboutlayout"
                 android:layout_width="match_parent"
                 android:layout_height="48dip"
                 android:layout_marginTop="@dimen/tab_margin_top"
@@ -295,6 +298,7 @@
                     android:src="@drawable/mm_submenu_normal" />
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/xieyilayout"
                 android:layout_width="match_parent"
                 android:layout_height="48dip"
                 android:layout_marginTop="@dimen/tab_margin_top"

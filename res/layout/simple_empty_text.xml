@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/empty"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:paddingTop="8dip"
+    android:paddingBottom="8dip"
+    android:layout_height="match_parent">
+ 
+    <ImageView 
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dip"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/hint"
+        android:layout_below="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="没有任何评论"
+        android:textColor="@color/black" />
+</RelativeLayout>

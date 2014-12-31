@@ -79,6 +79,9 @@ public class FileUtils {
 		try {
 			inBuff = new BufferedInputStream(new FileInputStream(sourceFile));
 			outBuff = new BufferedOutputStream(new FileOutputStream(targetFile));
+			if(!targetFile.exists()){
+				targetFile.createNewFile();
+			}
 			byte[] buffer = new byte[BUFFER];
 			int length;
 			while ((length = inBuff.read(buffer)) != -1) {

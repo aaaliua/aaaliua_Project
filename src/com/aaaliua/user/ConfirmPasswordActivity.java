@@ -19,6 +19,9 @@ import com.aaaliua.utils.ParseJson;
 import com.aaaliua.utils.RequestUrl;
 import com.aaaliua.utils.Toaster;
 import com.dazhongcun.baseactivity.BaseActionBarActivity;
+import com.easemob.EMCallBack;
+import com.easemob.chat.EMChat;
+import com.easemob.chat.EMChatManager;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -118,6 +121,30 @@ public class ConfirmPasswordActivity extends BaseActionBarActivity{
 					// 如果有localID就跟新数据库 否则插入数据库
 					dbHelper.createOrUpdate(bean);
 				}
+				
+				final String username = bean.getUid();
+				final String pass = bean.getPasswd();
+				//登录环信系统
+				EMChatManager.getInstance().login(username, pass, new EMCallBack() {
+					
+					@Override
+					public void onError(int arg0, String arg1) {
+					}
+
+					@Override
+					public void onProgress(int arg0, String arg1) {
+					}
+
+					@Override
+					public void onSuccess() {
+						runOnUiThread(new Runnable() {
+							public void run() {
+								Toaster.showOneToast("登录聊天系统成功");
+							}
+						});
+						
+						EMChat.getInstance().setAppInited();
+					}});
 				
 				
 				startActivity(new Intent(ConfirmPasswordActivity.this,SelectSchoolActivity.class));

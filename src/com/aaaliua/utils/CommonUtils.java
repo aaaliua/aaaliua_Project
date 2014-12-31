@@ -2,10 +2,16 @@ package com.aaaliua.utils;
 
 import java.io.File;
 
+import com.aaaliua.itemwork.R;
+import com.easemob.chat.EMMessage;
+import com.easemob.chat.TextMessageBody;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
 
@@ -15,6 +21,84 @@ import android.os.Environment;
  */
 public class CommonUtils {
 
+	/**
+	 * 检测网络是否可用
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static boolean isNetWorkConnected(Context context) {
+		if (context != null) {
+			ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+			NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+			if (mNetworkInfo != null) {
+				return mNetworkInfo.isAvailable();
+			}
+		}
+
+		return false;
+	}
+	
+	
+	
+	
+	/**
+     * 根据消息内容和消息类型获取消息内容提示
+     * 
+     * @param message
+     * @param context
+     * @return
+     */
+    public static String getMessageDigest(EMMessage message, Context context) {
+        String digest = "";
+        switch (message.getType()) {
+        case LOCATION: // 位置消息
+            if (message.direct == EMMessage.Direct.RECEIVE) {
+                //从sdk中提到了ui中，使用更简单不犯错的获取string方法
+//              digest = EasyUtils.getAppResourceString(context, "location_recv");
+                digest = getStrng(context, R.string.location_recv);
+                digest = String.format(digest, message.getFrom());
+                return digest;
+            } else {
+//              digest = EasyUtils.getAppResourceString(context, "location_prefix");
+                digest = getStrng(context, R.string.location_prefix);
+            }
+            break;
+        case IMAGE: // 图片消息
+            digest = getStrng(context, R.string.picture);
+            break;
+        case VOICE:// 语音消息
+            digest = getStrng(context, R.string.voice);
+            break;
+        case VIDEO: // 视频消息
+            digest = getStrng(context, R.string.video);
+            break;
+        case TXT: // 文本消息
+            if(!message.getBooleanAttribute(Constant.MESSAGE_ATTR_IS_VOICE_CALL,false)){
+                TextMessageBody txtBody = (TextMessageBody) message.getBody();
+                digest = txtBody.getMessage();
+            }else{
+                TextMessageBody txtBody = (TextMessageBody) message.getBody();
+                digest = getStrng(context, R.string.voice_call) + txtBody.getMessage();
+            }
+            break;
+        case FILE: //普通文件消息
+            digest = getStrng(context, R.string.file);
+            break;
+        default:
+            System.err.println("error, unknow type");
+            return "";
+        }
+
+        return digest;
+    }
+    
+    static String getStrng(Context context, int resId){
+        return context.getResources().getString(resId);
+    }
+	
+    
+    
 	/**
 	 * 获得版本名称
 	 * 

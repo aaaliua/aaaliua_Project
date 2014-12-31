@@ -7,6 +7,7 @@ import butterknife.OnClick;
 import com.aaaliua.application.AppApplication;
 import com.aaaliua.database.BaseAppDbHelper;
 import com.aaaliua.entity.UserEntity;
+import com.aaaliua.event.Event.ChangeInfo;
 import com.aaaliua.event.Event.Logout;
 import com.aaaliua.event.Event.RegisterEvent;
 import com.aaaliua.itemwork.R;
@@ -74,6 +75,9 @@ public class UserActivity extends BaseActionBarActivity {
 			setInfo();
 		}
 	}
+	public void onEventMainThread(ChangeInfo event) {
+	 setInfo();
+	}
 	
 	private void setInfo(){
 		if (dbHelper != null) {
@@ -98,6 +102,14 @@ public class UserActivity extends BaseActionBarActivity {
 	@OnClick(R.id.selectSchool)
 	public void onSelectClick(View v) {
 		startActivity(new Intent(this, SelectSchoolActivity.class));
+	}
+	@OnClick(R.id.touserEdit)
+	public void onTouserEditClick(View v) {
+		startActivity(new Intent(this, EditInfo.class));
+	}
+	@OnClick(R.id.mylist)
+	public void onListClick(View v) {
+		startActivity(new Intent(this, MyList.class));
 	}
 
 	@OnClick(R.id.logout)
@@ -135,5 +147,17 @@ public class UserActivity extends BaseActionBarActivity {
 	@OnClick(R.id.back)
 	public void onBackClick(View v) {
 		finish();
+	}
+	@OnClick(R.id.aboutlayout)
+	public void onAboutClick(View v) {
+		Intent it = new Intent(this,HtmlView.class);
+		it.putExtra("code", 0);
+		startActivity(it);
+	}
+	@OnClick(R.id.xieyilayout)
+	public void onXieyiClick(View v) {
+		Intent it = new Intent(this,HtmlView.class);
+		it.putExtra("code", 1);
+		startActivity(it);
 	}
 }

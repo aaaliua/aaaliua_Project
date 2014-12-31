@@ -24,7 +24,16 @@ public class Event {
     public static class Forget{
     	
     }
+    public static class ChangeInfo{
+    	
+    }
     public static class NotifacationPic{
+    	
+    }
+    public static class NotifacationMSG{
+    	
+    }
+    public static class Delete{
     	
     }
     public static class NotifacationType{

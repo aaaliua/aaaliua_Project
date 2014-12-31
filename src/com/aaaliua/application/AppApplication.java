@@ -17,6 +17,7 @@ import com.aaaliua.itemwork.R;
 import com.dazhongcun.application.BaseApplication;
 import com.dazhongcun.utils.BaseUtils;
 import com.dazhongcun.utils.PinyinUtils;
+import com.easemob.chat.EMChat;
 import com.loopj.android.http.AsyncHttpClient;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -37,7 +38,7 @@ public class AppApplication extends BaseApplication {
 	public void onCreate() {
 		super.onCreate();
 		
-		
+		EMChat.getInstance().init(getApplicationContext());
 		//异常报告
 //		ACRA.init(this);
 //		ErrorReporter.getInstance().removeAllReportSenders();

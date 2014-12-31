@@ -1,3 +1,4 @@
 <factorypath>
     <factorypathentry kind="WKSPJAR" id="/ItemWork/libs/butterknife-5.1.2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="WKSPJAR" id="/ItemWork/libs/pg-2.0.1.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

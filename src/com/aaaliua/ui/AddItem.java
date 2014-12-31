@@ -145,10 +145,16 @@ public class AddItem extends BaseActionBarActivity {
 			if(servicePath.size() == bmpPaths.size()){
 				System.out.println(servicePath.toString() +"------------"+ servicePath.size());
 				StringBuffer buf = new StringBuffer();
-				for(String path : servicePath){
-					buf.append("|");
-					buf.append(path);
+				for(int i =0;i<servicePath.size();i++){
+					if(i != 0){
+						buf.append("|");
+					}
+					buf.append(servicePath.get(i));
 				}
+//				for(String path : servicePath){
+//					buf.append("|");
+//					buf.append(path);
+//				}
 				entity.setImage(buf.toString());
 				
 			//	开始上传
@@ -430,7 +436,7 @@ public class AddItem extends BaseActionBarActivity {
 			public void onPositive(MaterialDialog dialog) {
 				entity.setTitle(title.getText().toString().trim());
 				entity.setNum("".equals(number.getText().toString().trim())?0:Integer.valueOf(number.getText().toString().trim()));
-				entity.setMoney("".equals(mai.getText().toString().trim())?0:Integer.valueOf(mai.getText().toString().trim()));
+				entity.setMoney("".equals(mai.getText().toString().trim())?0:Double.valueOf(mai.getText().toString().trim()));
 				entity.setDesc(desc.getText().toString().trim());
 				entity.setUsername(linkman.getText().toString().trim());
 				entity.setContact(linkphone.getText().toString().trim());

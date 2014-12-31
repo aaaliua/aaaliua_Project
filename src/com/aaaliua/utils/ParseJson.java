@@ -8,8 +8,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.aaaliua.entity.BaseType;
+import com.aaaliua.entity.ItemEntity;
 import com.aaaliua.entity.ItemType;
 import com.aaaliua.entity.MakeEntity;
+import com.aaaliua.entity.PostUser;
 import com.aaaliua.entity.Status;
 import com.aaaliua.entity.UserEntity;
 import com.aaaliua.entity.ValidateCode;
@@ -199,6 +201,93 @@ public class ParseJson {
 						entity.setCity(obj.optString(MakeEntity.MAKE_CITY));
 						entity.setAddress(obj.optString(MakeEntity.MAKE_ADDRESS));
 						entity.setLoadtype(MakeEntity.ITEM);
+						lists.add(entity);
+					}
+					
+					return lists;
+				}else{
+						Toaster.showOneToast(json.optString("message"));
+					return null;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+			return null;
+		}
+		//评论列表
+		public static List<PostUser> getPostUserList(String jsonStr){
+			List<PostUser> lists= new ArrayList<PostUser>();
+			try {
+				JSONObject json = new JSONObject(jsonStr);
+				String code = json.optString(Status.JSON_STATUS);
+				if("0".equals(code)){
+					JSONArray objarr = json.getJSONArray("data");
+					for(int i = 0 ;i<objarr.length();i++){
+						JSONObject obj = objarr.getJSONObject(i);
+						PostUser entity = new PostUser();
+						entity.setId(obj.optString(PostUser.POST_ID));
+						entity.setMsgid(obj.optString(PostUser.POST_MESSAGE_ID));
+						entity.setUid(obj.optString(PostUser.POST_UID));
+						entity.setContent(obj.optString(PostUser.POST_CONTENT));
+						entity.setAddtime(obj.optString(PostUser.POST_ADDTIME));
+						entity.setIcon(obj.optString(PostUser.POST_ICON));
+						entity.setNickname(obj.optString(PostUser.POST_NICKNAME));
+						lists.add(entity);
+					}
+					
+					return lists;
+				}else{
+					Toaster.showOneToast(json.optString("message"));
+					return null;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+			return null;
+		}
+		
+		
+		
+		
+		//解物品列表
+		public static List<ItemEntity> getItemEntityList(String jsonStr){
+			List<ItemEntity> lists= new ArrayList<ItemEntity>();
+			try {
+				JSONObject json = new JSONObject(jsonStr);
+				String code = json.optString(Status.JSON_STATUS);
+				if("0".equals(code)){
+					JSONArray objarr = json.getJSONArray("data");
+					for(int i = 0 ;i<objarr.length();i++){
+						JSONObject obj = objarr.getJSONObject(i);
+						ItemEntity entity = new ItemEntity();
+						entity.setId(obj.optString(ItemEntity.JSON_ID));
+						entity.setUid(obj.optString(ItemEntity.JSON_UID));
+						entity.setTitle(obj.optString(ItemEntity.JSON_TITLE));
+						entity.setType(obj.optString(ItemEntity.JSON_TYPE));
+						entity.setPublish_type(obj.optString(ItemEntity.JSON_PUBLISH_TYPE));
+						entity.setNum(obj.optString(ItemEntity.JSON_NUM));
+						entity.setMonth_num(obj.optString(ItemEntity.JSON_MONTH_NUM));
+						entity.setUnit(obj.optString(ItemEntity.JSON_UNIT));
+						entity.setUsername(obj.optString(ItemEntity.JSON_USERNAME));
+						entity.setContact(obj.optString(ItemEntity.JSON_CONTACT));
+						entity.setMoney(obj.optString(ItemEntity.JSON_MONEY));
+						entity.setNew_type(obj.optString(ItemEntity.JSON_NEW_TYPE));
+						entity.setReturn_time(obj.optString(ItemEntity.JSON_RETURN_TIME));
+						entity.setSchool(obj.optString(ItemEntity.JSON_SCHOOL));
+						entity.setDescription(obj.optString(ItemEntity.JSON_DESCRIPTION));
+						entity.setImage(obj.optString(ItemEntity.JSON_IMAGE));
+						entity.setStatus(obj.optString(ItemEntity.JSON_STATUS));
+						entity.setPraise(obj.optString(ItemEntity.JSON_PRAISE));
+						entity.setUpdate_time(obj.optString(ItemEntity.JSON_UPDATE_TIME));
+						entity.setAddtime(obj.optString(ItemEntity.JSON_ADDTIME));
+						entity.setRemark(obj.optString(ItemEntity.JSON_REMARK));
+						entity.setSh_shool(obj.optString(ItemEntity.JSON_sh_shool));
+						entity.setIcon(obj.optString(ItemEntity.JSON_icon));
+						entity.setNickname(obj.optString(ItemEntity.JSON_nickname));
 						lists.add(entity);
 					}
 					
